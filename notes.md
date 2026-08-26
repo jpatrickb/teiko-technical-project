@@ -34,11 +34,10 @@ Metadata:
 - Sample (3 samples per subject, taken 0, 7, and 14 days/units of time after treatment began)
   - `sample00000`-`sample10499`
 - Sample Type (`sample_type`)
-  - `PMBC`
+  - `PBMC`
   - `WB`
 - Time from treatment start
   - 0
   - 7
   - 14
 
-Since
