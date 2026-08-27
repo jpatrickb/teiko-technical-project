@@ -1,4 +1,1 @@
-*.png
-*.jpb
-
-*.db
+__pycache__/*

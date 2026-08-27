@@ -28,13 +28,14 @@ def init_db(db_path="cell-count.db", schema_path="schema.sql"):
 
 def load_data(db_path="cell-count.db", data_path="cell-count.csv"):
     # Initialize database if not done
-    if not os.path.exists(db_path):
-        init_db(db_path)
+    if os.path.exists(db_path):
+        os.remove(db_path)
+    init_db(db_path)
 
     conn = sqlite3.connect(db_path)
 
     # Load data, split into subjects and samples, and save to db
-    cell_data = pd.read_csv("cell-count.csv").rename(columns={"subject": "subject_id", "sample": "sample_id"})
+    cell_data = pd.read_csv(data_path).rename(columns={"subject": "subject_id", "sample": "sample_id"})
 
     subjects = cell_data[cell_data.columns[:7]].drop_duplicates()
 

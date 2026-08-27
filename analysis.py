@@ -48,7 +48,7 @@ def initial_analysis(db_path="cell-count.db"):
     return samples_long
 
 
-def statistical_analysis(db_path="cell-count.db", img_path="images/cells-by-response.png"):
+def statistical_analysis(db_path="cell-count.db", img_path="outputs/cells-by-response.png"):
     summary_df = initial_analysis(db_path)
 
     conn = sqlite3.connect(db_path)
@@ -110,7 +110,8 @@ WHERE sub.condition = 'melanoma'
             'significant': reject[i]
         }
 
-    return pd.DataFrame(results), img_path, merged_df
+    results = pd.DataFrame(results)
+    return results, img_path, merged_df
 
 
 def baseline_cohort(db_path="cell-count.db"):
@@ -173,6 +174,28 @@ WHERE sub.condition = 'melanoma'
     avg_b_cell = result['avg_b_cell'].iloc[0]
     return avg_b_cell
 
+
+def save_outputs(db_path="cell-count.db", output_dir="outputs"):
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    # Part 2
+    frequencies = initial_analysis(db_path)
+    frequencies.to_csv(os.path.join(output_dir, "part2_frequencies.csv"), index=False)
+
+    # Part 3
+    stats_df, _, _ = statistical_analysis(db_path)
+    stats_df.T.to_csv(os.path.join(output_dir, "part3_stats.csv"), index_label="population")
+
+    # part 4
+    by_project, by_response, by_sex = baseline_cohort(db_path)
+    by_project.to_csv(os.path.join(output_dir, "part4_by_project.csv"))
+    by_response.to_csv(os.path.join(output_dir, "part4_by_response.csv"))
+    by_sex.to_csv(os.path.join(output_dir, "part4_by_sex.csv"))
+
+    avg_b_cell = b_cell_calculation(db_path)
+    with open(os.path.join(output_dir, "part4_b_cell_avg.txt"), "w") as f:
+        f.write(f"{avg_b_cell:.2f}\n")
+
 if __name__ == "__main__":
-    print(baseline_cohort())
-    print(f"{b_cell_calculation():.2f}")
+    save_outputs()
