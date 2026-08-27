@@ -28,8 +28,6 @@ uv run analysis.py
 uv run streamlit run dashboard.py
 ```
 
-(Test in github codespace before adding instructions/notes about that)
-
 ## DB Setup
 
 I chose to set up a database with two separate tables (`subjects` and `samples`) because the dataset is compromised of 3500 individuals (subjects) who each had three samples taken from them.
