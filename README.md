@@ -1,7 +1,7 @@
 # Teiko Cell Count Analysis Project
 *Author: Patrick Beal*
 
-First off, I want to say to whoever is reading this that I really loved this project! Even though I've loved my current position, I enjoyed this project much more than the type of work I've been doing, so I would love to further explore the possibility of working at Teiko. 
+First off, I want to say to whoever is reading this that I really loved this project! The type of work is very interesting to me, and really enjoyable. I would love to talk more about the opportunity of working at Teiko.
 
 ## Quickstart
 
