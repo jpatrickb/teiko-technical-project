@@ -1,7 +1,7 @@
 # Teiko Cell Count Analysis Project
 *Author: Patrick Beal*
 
-First off, I want to say to whoever is reading this that I really loved this project! I enjoyed it much more than the work I've been doing since graduation, so I would love to further explore the possibility of working at Teiko. 
+First off, I want to say to whoever is reading this that I really loved this project! Even though I've loved my current position, I enjoyed this project much more than the type of work I've been doing, so I would love to further explore the possibility of working at Teiko. 
 
 ## Quickstart
 
@@ -10,6 +10,8 @@ To run this app or reproduce the results, you can use the makefile:
 ```bash
 make setup && make pipeline && make dashboard
 ```
+
+(If you're running this in GitHub Codespaces, the `localhost` link that streamlit provides you should open up just fine)
 
 Otherwise, if you prefer to run each step manually, follow these steps to run using `uv` (my favorite package/project manager):
 
@@ -51,4 +53,6 @@ Similarly, the streamlit dashboard is pretty minimal, and just shows the datafra
 
 ## Dashboard
 
-(once I've deployed to the streamlit community page I'll add the link)
+You can view my active dashboard on [Streamlit](https://teiko-technical-project-jpatrickb.streamlit.app/) at https://teiko-technical-project-jpatrickb.streamlit.app/.
+
+Thank you!
